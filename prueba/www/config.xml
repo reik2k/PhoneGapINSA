@@ -6,10 +6,10 @@
         id        = "com.phonegap.helloworld"
         version   = "1.0.0">
 
-    <name>myAppINSA</name>
+    <name>HelloWorld</name>
 
     <description>
-        Aplicación para le Curso de Phonegap.
+        Hello World sample application that responds to the deviceready event.
     </description>
 
     <author href="http://phonegap.com" email="support@phonegap.com">
@@ -21,12 +21,7 @@
         The "device" permission is required for the 'deviceready' event.
     -->
     <feature name="http://api.phonegap.com/1.0/device" />
-    
-    <!--myAppINSA Pluggin-->
-    <feature name="Accelerometer">
-        <param name="ios-package" value="CDVAccelerometer" />
-    </feature>
-    
+
     <!--
         If you do not want any permissions to be added to your app, add the
         following tag to your config.xml; you will still have the INTERNET
