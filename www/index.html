@@ -28,37 +28,14 @@
     </head>
     <body>
         <div class="app">
-            <h1>Ejemplo: Acelerometro</h1>
-            <p>getCurrentAcceleration<p>
-            <div id="result">Waiting for accelerometer...</div>
+            <h1>myAppINSA</h1>
+            <p><p>
+            <div id="result"></div>
         </div>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
-            document.addEventListener("deviceready",onDevideReady,false);
-            function onDeviceReady()
-            {
-               //navigator.accelerometer.getCurrentAcceleration(onSuccess,onError); 
-               
-            }
-            //onSuccess: show the information inside HTML document.
-            //
-            function onSuccess()
-            {
-                var element = document.getElementById('result');
-                element.innerHTML = '<br/>'+
-                            '1. Acceleration X:'+ acceleration.x + '<br/>' +
-                            '2. Acceleration Y:'+ acceleration.y + '<br/>' +
-                            '3. Acceleration Z:'+ acceleration.z + '<br/>' +
-                            '4. Timestamp: ' + acceleration.timestamp;
-                        
-            }
-            // onError: Failed to get the acceleration
-            //
-            function onError() {
-                alert('onError!');
-            }
         </script>
     </body>
 </html>
