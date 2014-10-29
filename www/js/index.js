@@ -27,6 +27,9 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener('pause', this.onLoad, false);
+        document.addEventListener('resume', this.onResume, false);
+        document.addEventListener('online', this.onOnline, false);
     },
     // deviceready Event Handler
     //
@@ -45,5 +48,24 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+    },
+    // Handle the resume event
+    //
+    onLoad:function () 
+    {
+        
+    },
+    // Handle the resume event
+    //
+    onResume:function () 
+    {
+        app.initialize();
+        alert('onResume');
+    },
+    // Handle the online event
+    //
+    onOnline:function () 
+    {
+        alert('onOnline');
     }
 };
