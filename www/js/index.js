@@ -16,6 +16,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+function getElement(id)
+{
+    return document.getElementById(id);
+}
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -34,16 +39,35 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        
+        //Call Check Internet Conection Mode
+        app.checkConnection();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+        var parentElement       = getElement(id);//document.getElementById(id);
+        var listeningElement    = parentElement.querySelector('.listening');
+        var receivedElement     = parentElement.querySelector('.received');
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
+           
+        //alert('Received Event: ' + id);
+    },
+    checkConnection:function ()
+    {
+        console.log(navigator.network.connection.type);
+        var networkState = navigator.network.connection.type;
+        
+        var states = {};
+        states[Connection.UNKNOWN]  = 'Unknown connection';
+        states[Connection.ETHERNET] = 'Ethernet connection';
+        states[Connection.WIFI]     = 'WiFi connection';
+        states[Connection.CELL_2G]  = 'Cell 2G connection';
+        states[Connection.CELL_3G]  = 'Cell 3G connection';
+        states[Connection.CELL_4G]  = 'Cell 4G connection';
+        states[Connection.NONE]     = 'No network connection';
 
-        console.log('Received Event: ' + id);
+        alert('Connection type: ' + states[networkState]);
     }
 };
