@@ -56,8 +56,11 @@ var app = {
         myContact.note          = 'This contact has a note.';
         
         
-        pname.innerHTML =   myContact.displayName;
-        pnote.innerHTML =   myContact.note
+        pname.innerHTML =   'NOMBRE: '  + myContact.displayName;
+        pnote.innerHTML =   'NOTA:'     + myContact.note
         
-    }
+        myContact.save(this.onSuccess(),this.onError());
+     },
+     onSuccess:function (){alert('Contacto Guradado')},
+     onError:function (code){alert('ErrorCode: '+code)}
 };
