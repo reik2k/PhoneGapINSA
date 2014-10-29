@@ -45,5 +45,19 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+        
+        //CREATE CONTACT
+        var pname = document.getElementById('name');
+        var pnote = document.getElementById('note');
+        
+        var myContact = navigator.contacts.create();
+        
+        myContact.displayName   = 'Test User';    
+        myContact.note          = 'This contact has a note.';
+        
+        
+        pname.innerHTML =   myContact.displayName;
+        pnote.innerHTML =   myContact.note
+        
     }
 };
